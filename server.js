@@ -22,7 +22,13 @@ server.use(express.static('public'));
 server.get("/",
  async (req, res) => {
   const userAgent = req.headers['user-agent'];
-  const referer = req.headers['referer']
+  const referer = req.headers.referer
+  const xunityversion = req.headers['x-unity-version'];
+  console.log({userAgent})
+  console.log({referer})
+  console.log({xunityversion})
+  console.log({headers:req.headers})
+
   if(referer !== "'http://localhost:51579/" || !req.headers['x-unity-version'])
   return res.status(403).send('Access Forbidden');
 
