@@ -30,12 +30,9 @@ server.get("/",
   console.log({headers:req.headers})
 
   if((referer != 'http://localhost:51579/') || (xunityversion == undefined)){
-  return res.status(403).send('Access Forbidden');
+  res.status(403).send('Access Forbidden');
 }
 
-
-    console.log([userAgent])
-  console.log({headers:req.headers})
    return res.send("reach");
 })
 
