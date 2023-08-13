@@ -22,7 +22,9 @@ server.use(express.static('public'));
 server.get("/",
  async (req, res) => {
   const userAgent = req.headers['user-agent'];
-  console.log(userAgent)
+  console.log([userAgent])
+  console.log({headers:req.headers})
+  console.log({request:req})
    return res.send("reach");
 })
 
