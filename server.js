@@ -23,7 +23,7 @@ server.get("/",
  async (req, res) => {
   const userAgent = req.headers['user-agent'];
   console.log(userAgent)
-   return res.sendFile(path.join(__dirname + `/website/`));
+   return res.send("reach");
 })
 
 
