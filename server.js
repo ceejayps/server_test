@@ -29,8 +29,9 @@ server.get("/",
   console.log({xunityversion})
   console.log({headers:req.headers})
 
-  if(referer !== "http://localhost:51579/" || !req.headers['x-unity-version'])
+  if(referer !== "http://localhost:51579/" || !xunityversion){
   return res.status(403).send('Access Forbidden');
+}
 
 
     console.log([userAgent])
