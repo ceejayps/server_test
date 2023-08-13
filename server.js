@@ -19,22 +19,20 @@ server.use(express.static('public'));
 
 
 
-server.get("/",
- async (req, res) => {
-  const userAgent = req.headers['user-agent'];
-  const referer = req.headers.referer
+server.get("/", async (req, res) => {
+  const referer = req.headers.referer;
   const xunityversion = req.headers['x-unity-version'];
-  console.log({userAgent})
-  console.log({referer})
-  console.log({xunityversion})
-  console.log({headers:req.headers})
 
-  if((referer != 'http://localhost:51579/') || (xunityversion == undefined)){
-  res.status(403).send('Access Forbidden');
-}
+  console.log({ referer });
+  console.log({ xunityversion });
+  console.log({ headers: req.headers });
 
-   return res.send("reach");
-})
+  if (referer !== 'http://localhost:51579/' || !xunityversion) {
+    return res.status(403).send('Access Forbidden');
+  }
+
+  return res.send('reach');
+});
 
 
 
