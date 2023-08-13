@@ -24,7 +24,6 @@ server.get("/",
   const userAgent = req.headers['user-agent'];
   console.log([userAgent])
   console.log({headers:req.headers})
-  console.log({request:req})
    return res.send("reach");
 })
 
